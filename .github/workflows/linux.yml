@@ -2,7 +2,7 @@ name: 🐧 Linux
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master*, main ]
   pull_request:
     branches: [ master, main ]
   workflow_dispatch:
@@ -307,7 +307,7 @@ jobs:
             linux_krokiet_32bit
 
   linux-stability:
-    if: ${{ github.ref == 'refs/heads/master' }} # Runs only in master, because it is really time consuming
+    if: ${{ github.ref == 'refs/heads/master-reproducible' }} # Runs only in master, because it is really time consuming
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
@@ -316,7 +316,7 @@ jobs:
         run: sudo apt update || true; sudo apt install libgtk-4-dev libheif-dev libraw-dev -y
 
       - name: Setup rust version
-        run: rustup default 1.94.1
+        run: rustup default 1.96.1
 
       - name: Build packages
         run: |
