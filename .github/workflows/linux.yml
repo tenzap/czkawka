@@ -316,7 +316,7 @@ jobs:
         run: sudo apt update || true; sudo apt install libgtk-4-dev libheif-dev libraw-dev -y
 
       - name: Setup rust version
-        run: rustup default 1.99.0
+        run: rustup default 1.95.0
 
       - name: Build packages
         run: |
